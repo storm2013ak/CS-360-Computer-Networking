@@ -1,6 +1,12 @@
 // to listen on the network 5432
 
-
+/* Server code:
+    passive open
+    socket
+    bind
+    listen
+    accept(send, recv, close)     
+*/
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -38,7 +44,7 @@ int main() {
         exit(1);
     }
     
-    if ((bind(s, (struct sockaddr *), &sin, sizeof(sin))) < 0)
+    if ((bind(s, (struct sockaddr *) &sin, sizeof(sin))) < 0)
     {
         perror("Bind call failed");
         exit(1);
@@ -64,4 +70,3 @@ int main() {
 
     return 0;
 }
-
